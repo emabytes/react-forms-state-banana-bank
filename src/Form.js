@@ -14,11 +14,7 @@ class Form extends Component {
         event.preventDefault();
     }
     handleAuszahlen = (event) => {
-        const newData = this.state.data.slice()
-        newData.push({
-            inputNum: this.state.inputNum
-        })
-        this.setState({ data: newData });
+        this.setState({ inputNum: Number(this.state.inputNum) - Number(this.state.newNum) });
         event.preventDefault();
     }
 
@@ -34,7 +30,7 @@ class Form extends Component {
                             onChange={this.handleChangeInputNum}
                         />
                         <input className="auszahlen" type="button" value="Einzahlen" onClick={this.handleEinzahlen} />
-                        <input className="einzahlen" type="button" value="Auszahlen" onClick={this.handleEinzahlen} />
+                        <input className="einzahlen" type="button" value="Auszahlen" onClick={this.handleAuszahlen} />
                     </div>
                 </form>
             </section>
